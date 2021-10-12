@@ -8,7 +8,6 @@
 #
 # ----------------------------------------------------------------
 
-
 # ----------------------------------------------------------------
 # Example dump data: [header] [key] [data_bcc] [stop_byte] [null_end]
 # ----------------------------------------------------------------
@@ -19,6 +18,25 @@ key = [0xF, 0xF, 0xB, 0x4, 0x5, 0x1, 0xA, 0x0,
 data_bcc = []
 stop_byte = 0x7e
 null_end = [0x00, 0x00]
+
+
+def getCrc(key, params):
+    ''' Returns CRC-16 CCITT of given '''
+    defaults = {'polynome': 0x1021,
+                'init': 0xFFFF,
+                'xor_out': 0}
+    for key in params.keys():
+        if params[key] == None:
+            params[key] = defaults[key]
+            
+    key += ''
+    crc = params['init']
+    length = len(key)
+    i = 0
+    
+    while i < length:
+        pass
+    return crc
 
 
 def getReversedMessageHex2Bin(hex_message):
